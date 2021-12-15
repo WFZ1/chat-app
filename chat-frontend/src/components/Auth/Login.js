@@ -2,20 +2,22 @@ import loginImage from '../../assets/images/login.svg';
 import styles from './Auth.module.scss';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { authService } from '../../services/authService';
+import { useDispatch } from 'react-redux';
+import { login as loginThunk } from '../../store/auth/thunk';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const submitForm = async (data) => {
     try {
-      const res = await authService.login(data);
-      console.log(res);
-    } catch (err) {
-      console.log('Auth service err', err);
-    }
-
-    console.log(data)
+			await dispatch(loginThunk(data)).unwrap();
+      navigate('/');
+		} catch (err) {
+			console.log('Auth service err', err);
+		}
   }
 
   return (
