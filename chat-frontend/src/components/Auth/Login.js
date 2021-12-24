@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { login as loginThunk } from '../../store/auth/thunk';
 import { useNavigate } from 'react-router-dom';
+import { setToken } from '../../services/authTokenService';
+import { setUser } from '../../services/userService';
 
 export const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -13,10 +15,14 @@ export const Login = () => {
 
   const submitForm = async (data) => {
     try {
-			await dispatch(loginThunk(data)).unwrap();
+			const { user, token } = await dispatch(loginThunk(data)).unwrap();
+
+      setToken(token);
+      setUser(user);
+
       navigate('/');
 		} catch (err) {
-			console.log('Auth service err', err);
+			console.log('Auth err', err);
 		}
   }
 

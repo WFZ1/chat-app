@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux';
-import { getAuth } from '../../store/selectors';
+import { Navbar } from './components/Navbar/Navbar';
+import styles from './Chat.module.scss';
 
 export const Chat = () => {
-  const { user } = useSelector(getAuth);
-
   return (
-    <div>
-      <h1>Chat screen</h1>
-      <p>Welcome, { user.firstName }</p>
+    <div className={styles.container}>
+      <Navbar />
+
+      <div className={styles.wrapper}>
+        Data
+      </div>
     </div>
   );
 };

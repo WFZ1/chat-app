@@ -1,0 +1,82 @@
+@import '../../../../assets/scss/variables';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  background-color: $bg-main;
+  padding: 0 10px;  
+}
+
+.faIcon {
+  color: #fff;
+  margin-left: 5px;
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  color: #fff;
+}
+
+.profileMenu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.avatar {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  align-self: center;
+  margin-right: 5px;
+  border-radius: 20px;
+}
+
+.userFullName {
+  display: flex;
+  align-self: center;
+  color: #fff;
+}
+
+.profileOptions {
+  position: absolute;
+  top: 50px;
+  border-radius: 5px;
+  padding: 0 5px;
+  right: 5px;
+  border: 1px solid #d9d9d9;
+  background-color: #fff;
+  z-index: 9999;
+}
+
+.profileOption {
+  margin: 10px 5px;
+  color: black;
+}
+
+.inputField {
+  input,
+  select {
+    height: 40px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.btnSuccess {
+  background-color: $success;
+  border: none;
+  padding: 5px;
+  width: 70px;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+}

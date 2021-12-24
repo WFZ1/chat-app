@@ -8,3 +8,7 @@ export const login = createAsyncThunk('auth/login', async (data) => {
 export const register = createAsyncThunk('auth/register', async (data) => {
 	return await authService.register(data);
 });
+
+export const updateProfile = createAsyncThunk('user/update', async (data) => {
+	return await authService.updateProfile(data);
+});

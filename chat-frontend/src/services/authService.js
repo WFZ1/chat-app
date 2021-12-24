@@ -2,18 +2,19 @@ import { API } from './api';
 
 export const login = async (data) => {
   const res = await API.post('/login', data);
-  API.defaults.headers['Authorization'] = `Bearer ${res.token}`;
-  
   return res.data;
 };
 
 export const register = async (data) => {
   const res = await API.post('/register', data);
-  API.defaults.headers['Authorization'] = `Bearer ${res.token}`;
-  
   return res.data;
 };
 
-export const logout = async () => {
+export const updateProfile = async (data) => {
+  const headers = {
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+  };
 
+  const res = await API.post('/users/update', data, headers);
+  return res.data;
 };
